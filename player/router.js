@@ -38,7 +38,7 @@ router.put(`/player/:id`, (req, res, next) => {
     if(player) {
       player.updateAttributes({
         name: req.body.name,
-        number: req.body.complete
+        number: req.body.number
       }).then((player) => {
         res.send(player);
       })
