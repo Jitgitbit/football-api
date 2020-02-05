@@ -12,4 +12,4 @@ const Team = db.define(
   { tableName: 'football_teams' }
 )
 
-module.exports = {Team}
+module.exports = { Team }
