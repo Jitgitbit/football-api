@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require(`./db`);
+const team = require(`./team/model`)
 
 
 const app = express();
