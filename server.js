@@ -3,6 +3,7 @@ const express = require('express');
 // const Team = require(`./team/model`);
 const teamRouter = require(`./team/router`);
 const bodyParser = require(`body-parser`);
+const playerRouter = require('./player/router')
 const jsonParser = bodyParser.json()
 
 
@@ -14,6 +15,7 @@ app.use(jsonParser);//order matters!!!!!!!
 
 
 app.use(teamRouter);
+app.use(playerRouter);
 
 app.listen(port, () => {
     console.log(`Listening on :${port}`) // USE THIS NOTATION FOR THE PORT !! 
