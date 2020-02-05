@@ -11,4 +11,13 @@ router.get('/team', (req, res, next) => {
     .catch(err => next(err))
 });
 
+router.post(`/team`, (req, res, next) => {
+  console.log(req.body)
+  Team.create(req.body)
+    .then(teams => {
+      res.send(teams);
+    })
+    .catch(err => next(err))
+})
+
 module.exports = router
