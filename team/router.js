@@ -28,4 +28,21 @@ router.post(`/teams`, (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.put(
+  '/teams/:id',
+  (request, response, next) => Team
+    .findByPk(request.params.id)
+    .then(team => team.update(request.body))
+    .then(team => response.send(team))
+    .catch(next)
+)
+
+router.delete(
+  '/teams/:id',
+  (request, response, next) => Team
+    .destroy({ where: { id: request.params.id }})
+    .then(number => response.send({ number }))
+    .catch(next)
+)
+
 module.exports = router
