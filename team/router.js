@@ -3,7 +3,7 @@ const router = new Router()
 const { Team } = require(`./model`);
 const db = require(`../db`);
 
-router.get('/team', (req, res, next) => {
+router.get('/teams', (req, res, next) => {
   Team.findAll()
     .then(teams => {
       res.send(teams);
@@ -11,7 +11,7 @@ router.get('/team', (req, res, next) => {
     .catch(err => next(err))
 });
 
-router.get('/team/:id', (req, res, next) => {
+router.get('/teams/:id', (req, res, next) => {
   Team.findByPk(req.params.id) // beware: if you want to define a const with req.params.id you have to parseInt(), because Url returns a string !!
     .then(team => {
       res.json(team); //send for strings, json for data. it works both but it's better practice!
@@ -19,7 +19,7 @@ router.get('/team/:id', (req, res, next) => {
     .catch(err => next(err))
 });
 
-router.post(`/team`, (req, res, next) => {
+router.post(`/teams`, (req, res, next) => {
   console.log(req.body)
   Team.create(req.body)
     .then(team => {

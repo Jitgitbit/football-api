@@ -12,7 +12,7 @@ router.get('/player', (req, res, next) => {
     .catch(err => next(err))
 });
 
-router.get('/player/:id', (req, res, next) => {
+router.get('/players/:id', (req, res, next) => {
   Player.findByPk(req.params.id, { include: [Team] }) // beware: if you want to define a const with req.params.id you have to parseInt(), because Url returns a string !!
     .then(player => {
       res.json(player); //send for strings, json for data. it works both but it's better practice!
@@ -20,7 +20,7 @@ router.get('/player/:id', (req, res, next) => {
     .catch(err => next(err))
 });
 
-router.post(`/player`, (req, res, next) => {
+router.post(`/players`, (req, res, next) => {
   console.log(req.body)
   Player.create(req.body)
     .then(player => {
@@ -29,7 +29,7 @@ router.post(`/player`, (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.put(`/player/:id`, (req, res, next) => {
+router.put(`/players/:id`, (req, res, next) => {
   Player.find({
     where: {
       id: req.params.id
