@@ -4,7 +4,7 @@ const {Player} = require(`./model`);
 const db = require(`../db`);
 const { Team } = require(`../team/model`);
 
-router.get('/player', (req, res, next) => {
+router.get('/players', (req, res, next) => {
   Player.findAll()
     .then(players => {
       res.send(players);
